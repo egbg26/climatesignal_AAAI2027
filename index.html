@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#123a35" />
+  <meta name="description" content="ClimateSignal: Bridging Climate Science and AI to Counter Mis and Disinformation. A one-day, in-person AAAI-27 Bridge in Montréal, February 2027." />
+  <meta property="og:title" content="ClimateSignal · AAAI-27 Bridge Event" />
+  <meta property="og:description" content="Building a shared research community at the intersection of climate science, AI and information integrity." />
+  <meta property="og:type" content="website" />
+  <title>ClimateSignal — AAAI-27 Bridge Event</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <style>
+    :root{--ink:#1c302e;--ink-soft:#596b67;--deep:#103a36;--deep-2:#0c2928;--teal:#0e8c72;--green:#caebd9;--lime:#e9f4b7;--cream:#f8faf7;--white:#fff;--line:#dfebe4;--shadow:0 24px 65px rgba(13,46,40,.10);--radius:22px;--max:1140px}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:95px}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-underline-offset:3px}
+    a:hover{text-decoration-color:var(--teal)}
+    button{font:inherit;cursor:pointer}
+    ::selection{background:#cdeed9;color:#143c32}
+    :focus-visible{outline:3px solid #60d5b4;outline-offset:4px}
+    .container{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+    .skip-link{position:absolute;z-index:100;top:-80px;left:16px;background:white;padding:12px 18px;border-radius:12px}.skip-link:focus{top:12px}
+    .site-header{position:sticky;top:0;z-index:40;background:rgba(248,250,247,.95);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(210,226,216,.85)}
+    .nav-wrap{min-height:76px;display:flex;align-items:center;gap:26px;justify-content:space-between}
+    .brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;white-space:nowrap;flex-shrink:0}
+    .brand-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:var(--deep)}
+    .brand-icon svg{width:25px;height:25px}
+    .brand-name{font-weight:850;letter-spacing:-.05em;font-size:1.18rem;line-height:1.1}
+    .brand-sub{display:block;font-size:.58rem;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-soft);font-weight:760;margin-top:3px}
+    .nav-links{display:flex;align-items:center;gap:27px}
+    .nav-links a{font-size:.84rem;font-weight:690;text-decoration:none;color:#425752;transition:color .2s}
+    .nav-links a:hover,.nav-links a[aria-current="true"]{color:var(--teal)}
+    .nav-external{border:1px solid #bdd5c8;padding:9px 14px;border-radius:100px;white-space:nowrap}
+    .menu-button{display:none;border:1px solid var(--line);width:43px;height:43px;background:#fff;border-radius:12px;align-items:center;justify-content:center;color:var(--deep)}
+    .menu-button svg{height:22px;width:22px}
+    .hero{position:relative;overflow:hidden;background:linear-gradient(119deg,#103b36 0%,#0d332f 51%,#082724 100%);color:#f7fff9;border-radius:0 0 32px 32px}
+    .hero::before{content:"";position:absolute;inset:0;opacity:.22;background-image:radial-gradient(#9fe2cc .8px,transparent .8px);background-size:25px 25px;mask-image:linear-gradient(90deg,transparent 25%,#000 100%);pointer-events:none}
+    .hero::after{content:"";position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(71,176,136,.22),transparent 70%);right:-230px;top:-200px;pointer-events:none}
+    .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.14fr .86fr;gap:52px;align-items:center;padding:97px 0 100px}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:.72rem;letter-spacing:.17em;text-transform:uppercase;font-weight:780;color:#b7edd8}
+    .eyebrow .dot{height:7px;width:7px;background:#aee9a5;border-radius:50%;box-shadow:0 0 0 5px rgba(171,236,166,.1)}
+    h1,h2,h3,p{margin-top:0}
+    .hero h1{font-size:clamp(3.4rem,6.6vw,6rem);letter-spacing:-.078em;line-height:1.04;font-weight:825;margin:26px 0 22px}
+    .hero h1 em{font-family:Georgia,"Times New Roman",serif;font-weight:500;letter-spacing:-.07em;color:#bee5cc;font-style:italic}
+    .hero-subtitle{font-size:clamp(1.25rem,2.2vw,1.72rem);line-height:1.4;letter-spacing:-.028em;font-weight:600;max-width:675px;margin:0 0 22px}
+    .hero-description{max-width:620px;color:#c1d8d0;font-size:1rem;line-height:1.78;margin-bottom:29px}
+    .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:13px 21px;border:1px solid transparent;border-radius:11px;font-weight:755;font-size:.9rem;line-height:1.3;text-decoration:none;transition:transform .2s,background .2s,border-color .2s}
+    .btn:hover{transform:translateY(-2px);text-decoration:none}
+    .btn-primary{background:#d1f0b8;color:#14392f}.btn-primary:hover{background:#e7f9d7}
+    .btn-secondary{background:transparent;color:#f7fffa;border-color:rgba(230,255,243,.33)}.btn-secondary:hover{border-color:#9fd7c1;background:rgba(255,255,255,.07)}
+    .arrow{font-size:1.15rem;line-height:1}
+    .hero-small{margin:24px 0 0;color:#abccbe;font-size:.79rem}
+    .hero-art{position:relative;display:flex;align-items:center;justify-content:center;min-height:440px}
+    .orbit-glow{position:absolute;width:410px;height:410px;border-radius:50%;background:radial-gradient(circle,#237b6557,transparent 66%)}
+    .hero-art svg{width:100%;max-width:500px;height:auto;overflow:visible;filter:drop-shadow(0 15px 30px rgba(0,0,0,.07))}
+    .hero-art .diagram-caption{position:absolute;right:-4px;bottom:0;display:flex;align-items:center;gap:9px;color:#c7ead9;font-size:.75rem;font-weight:550;background:#123f38b8;border:1px solid #497a65a0;padding:10px 15px;border-radius:100px;backdrop-filter:blur(10px)}
+    .caption-point{height:7px;width:7px;border-radius:50%;background:#b9edb2}
+    .info-wrap{position:relative;margin-top:-35px;z-index:3}
+    .info-strip{display:grid;grid-template-columns:1.15fr 1.2fr 1fr 1fr;background:white;border:1px solid #e0e9e3;border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+    .info-item{padding:25px 26px;position:relative}
+    .info-item+.info-item::before{position:absolute;content:"";height:49px;left:0;top:50%;transform:translateY(-50%);width:1px;background:#dce8e1}
+    .info-label{display:block;text-transform:uppercase;letter-spacing:.15em;color:#6c8279;font-size:.67rem;font-weight:850;margin-bottom:6px}
+    .info-value{display:block;font-size:1.08rem;line-height:1.38;font-weight:800;letter-spacing:-.02em;color:#173a31}
+    .info-note{display:block;color:#718178;font-size:.76rem;margin-top:3px;line-height:1.3}
+    .status-note{display:flex;align-items:flex-start;gap:12px;padding:16px 18px;border:1px solid #e2ead0;background:#f8faed;border-radius:12px;margin-top:16px;color:#5b6846;font-size:.81rem;line-height:1.6}
+    .status-note svg{flex-shrink:0;margin-top:2px}
+    .section{padding:101px 0 0}
+    .section-heading{max-width:760px;margin-bottom:40px}
+    .section-kicker{display:inline-flex;align-items:center;gap:9px;margin-bottom:13px;color:#16806a;font-size:.76rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}
+    .section-kicker::before{content:"";width:22px;height:2px;background:#23aa89;border-radius:2px}
+    .section h2{font-size:clamp(2rem,3.5vw,3.15rem);letter-spacing:-.055em;line-height:1.16;margin-bottom:17px;color:#153c32}
+    .section-lead{font-size:1.08rem;line-height:1.8;color:#5b7169;margin:0;max-width:760px}
+    .about-layout{display:grid;grid-template-columns:.95fr 1.05fr;gap:42px;align-items:start}
+    .about-copy{padding-right:10px}.about-copy p{color:#51665f;line-height:1.9}
+    .quote-panel{background:#e8f3e9;padding:29px 31px;border-radius:18px;border:1px solid #d4e5d7;margin-top:30px}
+    .quote-panel .quote-mark{font-family:Georgia,serif;font-size:3rem;height:29px;line-height:1;color:#4c9c74}
+    .quote-panel p{font-family:Georgia,serif;font-size:1.3rem;line-height:1.52;letter-spacing:-.015em;color:#1e5144;margin:11px 0 0}
+    .pillar-stack{display:grid;gap:14px}
+    .pillar{display:grid;grid-template-columns:52px 1fr;gap:16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:23px;box-shadow:0 8px 24px rgba(16,58,54,.035)}
+    .pillar-icon{height:50px;width:50px;border-radius:14px;background:#e5f5eb;color:#13775f;display:grid;place-items:center}
+    .pillar-icon svg{width:25px;height:25px}
+    .pillar h3{font-size:1.02rem;letter-spacing:-.025em;margin:0 0 5px}.pillar p{font-size:.87rem;color:#64786e;margin:0;line-height:1.7}
+    .topics-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+    .topic-card{background:#fff;border:1px solid #dfebe3;border-radius:17px;padding:28px 29px;min-height:190px;transition:transform .2s,box-shadow .2s}
+    .topic-card:hover{transform:translateY(-3px);box-shadow:0 15px 33px rgba(19,61,44,.06)}
+    .topic-number{color:#279577;font-size:.77rem;font-weight:850;letter-spacing:.11em;display:block;margin-bottom:15px}
+    .topic-card h3{font-size:1.17rem;letter-spacing:-.035em;line-height:1.32;margin-bottom:8px;color:#1d4037}
+    .topic-card p{font-size:.88rem;line-height:1.78;color:#667b72;margin:0}
+    .programme-shell{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 12px 35px rgba(16,58,54,.04)}
+    .programme-top{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:#f0f7f1;border-bottom:1px solid var(--line);padding:20px 27px}
+    .programme-note{display:flex;align-items:center;gap:9px;font-size:.84rem;color:#507060;font-weight:650}
+    .programme-note svg{flex:none}
+    .filter-bar{display:inline-flex;align-items:center;gap:3px;padding:4px;border:1px solid #d3e6d7;background:#fff;border-radius:10px}
+    .filter-button{border:0;background:transparent;color:#536b5f;font-size:.79rem;font-weight:770;padding:8px 12px;border-radius:7px;transition:background .2s,color .2s}
+    .filter-button[aria-pressed="true"]{background:#175343;color:#fff}
+    .schedule{padding:4px 26px 11px}
+    .schedule-row{display:grid;grid-template-columns:125px 116px 1fr;gap:20px;align-items:baseline;border-bottom:1px solid #eaf0eb;padding:19px 1px}
+    .schedule-row:last-child{border-bottom:0}
+    .schedule-row[hidden]{display:none}
+    .schedule-time{white-space:nowrap;font-weight:820;letter-spacing:-.02em;color:#244e43;font-variant-numeric:tabular-nums;font-size:.9rem}
+    .schedule-tag{display:inline-block;font-size:.68rem;font-weight:830;letter-spacing:.035em;border-radius:100px;padding:4px 9px;color:#176e59;background:#e5f4e9;white-space:nowrap;text-align:center}
+    .schedule-tag.collab{background:#e7f0fa;color:#375c82}
+    .schedule-tag.break{background:#f3f4ef;color:#728074}
+    .schedule-text{font-size:.9rem;color:#435d51;line-height:1.62}
+    .schedule-text strong{color:#203e34;font-weight:780}
+    .schedule-footer{font-size:.78rem;color:#728177;padding:16px 26px 21px;border-top:1px solid #ebf1ec;background:#fcfefc}
+    .outcome-section{padding-top:92px}
+    .outcomes{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+    .outcome{border:1px solid #d9e5da;border-radius:17px;padding:28px;background:#e9f2e9}
+    .outcome-icon{height:43px;width:43px;background:#d6e9d8;border:1px solid #c8dfd0;display:grid;place-items:center;border-radius:11px;font-size:1.3rem;margin-bottom:18px}
+    .outcome h3{font-size:1.07rem;color:#204b3b;letter-spacing:-.025em;margin-bottom:8px}.outcome p{margin:0;font-size:.86rem;color:#60746a;line-height:1.7}
+    .participate-panel{display:grid;grid-template-columns:1.12fr .88fr;gap:38px;background:#123f36;color:#fff;border-radius:22px;padding:47px 48px;overflow:hidden;position:relative}
+    .participate-panel::after{content:"";pointer-events:none;position:absolute;width:400px;height:400px;right:-140px;top:-170px;border-radius:50%;border:1px solid #548c77a8;box-shadow:0 0 0 52px #518a7430,0 0 0 105px #518a7418}
+    .participate-panel>*{position:relative;z-index:1}
+    .participate-panel h2{color:#fff;font-size:clamp(1.9rem,3vw,2.65rem)}
+    .participate-panel .section-kicker{color:#bfeec6}.participate-panel .section-kicker::before{background:#bfeec6}
+    .participate-panel p{color:#c9ded5;font-size:.94rem;line-height:1.83}
+    .participate-panel .contact-link{display:inline-flex;align-items:center;gap:7px;color:#dcf5c0;font-weight:780;font-size:.9rem;text-decoration:none;border-bottom:1px solid #9cbd88;padding-bottom:3px}
+    .participate-details{border:1px solid #5e877a;background:#1b4b41d9;border-radius:16px;padding:23px 25px;align-self:center}
+    .participate-details .detail-heading{color:#d5eec6;font-weight:820;text-transform:uppercase;letter-spacing:.14em;font-size:.7rem;margin-bottom:16px}
+    .participate-details ul{padding-left:20px;margin:0;display:grid;gap:12px;color:#e2f3e9;font-size:.9rem;line-height:1.65}
+    .participate-details li::marker{color:#a6d49b}
+    .committee-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .person-card{border:1px solid var(--line);background:#fff;border-radius:17px;padding:28px;display:grid;grid-template-columns:53px 1fr;gap:17px}
+    .avatar{width:52px;height:52px;border-radius:15px;background:#e1f0e6;color:#21795f;display:grid;place-items:center;font-size:.98rem;font-weight:850;letter-spacing:-.03em}
+    .person-role{font-size:.66rem;text-transform:uppercase;letter-spacing:.13em;color:#218068;font-weight:860;margin-bottom:5px}
+    .person-card h3{font-size:1.1rem;color:#1f4036;letter-spacing:-.03em;margin:0 0 3px}
+    .person-affiliation{font-weight:670;color:#557066;font-size:.83rem;margin:0 0 11px}
+    .person-description{color:#64776e;font-size:.84rem;line-height:1.72;margin:0 0 11px}
+    .person-email{display:block;overflow-wrap:anywhere;color:#0c8168;font-size:.8rem;text-decoration:none;font-weight:700}.person-email:hover{text-decoration:underline}
+    .footer{margin-top:96px;background:#eaf3eb;border-top:1px solid #d7e8d9;padding:35px 0 37px}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px}
+    .footer p{margin:0;color:#61766c;font-size:.78rem}.footer-links{display:flex;gap:18px;flex-wrap:wrap}.footer-links a{color:#2c6858;text-decoration:none;font-size:.79rem;font-weight:740}.footer-links a:hover{text-decoration:underline}
+    @media(max-width:1000px){.nav-links{gap:15px}.nav-links a{font-size:.8rem}.hero-inner{gap:10px}.hero-art{min-height:370px}.info-item{padding:22px 18px}}
+    @media(max-width:800px){.nav-wrap{min-height:68px}.menu-button{display:flex}.nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:#f8faf7;border-bottom:1px solid #dcebe0;box-shadow:0 18px 24px rgba(21,50,39,.08);padding:19px 24px 24px;flex-direction:column;align-items:stretch;gap:6px}.nav-links.is-open{display:flex}.nav-links a{font-size:.95rem;padding:10px 0}.nav-links .nav-external{padding:12px 14px;text-align:center;margin-top:6px}.hero-inner{grid-template-columns:1fr;padding:75px 0 70px}.hero h1{font-size:clamp(3.9rem,12vw,5.4rem)}.hero-art{min-height:300px;max-width:530px;width:100%;justify-self:center;margin-top:-6px}.hero-art svg{max-width:440px}.info-strip{grid-template-columns:repeat(2,1fr)}.info-item:nth-child(3){border-top:1px solid #e3ebe5}.info-item:nth-child(3)::before{display:none}.info-item:nth-child(4){border-top:1px solid #e3ebe5}.about-layout{grid-template-columns:1fr;gap:25px}.participate-panel{grid-template-columns:1fr;gap:14px}.outcomes{grid-template-columns:1fr 1fr}.outcome:last-child{grid-column:1/-1}}
+    @media(max-width:600px){.container{width:min(var(--max),calc(100% - 32px))}.hero{border-radius:0 0 23px 23px}.hero-inner{padding:65px 0 65px}.hero h1{font-size:clamp(3.35rem,15vw,4.5rem);letter-spacing:-.075em}.hero-subtitle{font-size:1.3rem}.hero-description{font-size:.95rem}.hero-art{min-height:230px}.hero-art svg{max-width:345px}.hero-art .diagram-caption{bottom:-3px;right:4px;font-size:.66rem}.info-wrap{margin-top:-23px}.info-strip{grid-template-columns:1fr 1fr;border-radius:15px}.info-item{padding:18px 15px}.info-item:nth-child(2)::before,.info-item:nth-child(4)::before{height:50px}.info-label{font-size:.6rem}.info-value{font-size:.95rem}.info-note{font-size:.7rem}.status-note{font-size:.77rem}.section{padding-top:76px}.section-heading{margin-bottom:27px}.section-lead{font-size:.99rem}.topics-grid,.committee-grid,.outcomes{grid-template-columns:1fr}.outcome:last-child{grid-column:auto}.topic-card{min-height:auto;padding:24px}.schedule{padding:5px 17px}.programme-top{padding:17px}.schedule-row{grid-template-columns:91px 1fr;gap:5px 14px;padding:17px 0}.schedule-time{font-size:.8rem}.schedule-tag{justify-self:start;font-size:.63rem;padding:3px 8px}.schedule-text{grid-column:2;grid-row:1 / span 2;font-size:.84rem}.schedule-footer{padding:14px 17px}.programme-note{font-size:.78rem}.filter-button{font-size:.75rem;padding:7px 10px}.participate-panel{padding:31px 25px;border-radius:17px}.participate-details{padding:20px}.person-card{padding:22px;grid-template-columns:43px 1fr;gap:12px}.avatar{height:42px;width:42px;font-size:.84rem}.footer{margin-top:74px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="ClimateSignal home">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M4 18c4-8 7-8 11 0s7 8 13-3" stroke="#c8f0c6" stroke-width="2.8" stroke-linecap="round"/><circle cx="5" cy="18" r="2.7" fill="#b7edaa"/><circle cx="27" cy="15" r="2.7" fill="#d9f4b5"/></svg>
+        </span>
+        <span><span class="brand-name">ClimateSignal</span><span class="brand-sub">AAAI-27 · Bridge Event</span></span>
+      </a>
+      <button class="menu-button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="nav-links" id="site-nav" aria-label="Main navigation">
+        <a href="#details">Key details</a>
+        <a href="#about">About</a>
+        <a href="#topics">Topics</a>
+        <a href="#programme">Programme</a>
+        <a href="#participate">Participate</a>
+        <a href="#organizers">Organizers</a>
+        <a href="https://aaai.org/conference/aaai/aaai-27/" target="_blank" rel="noopener noreferrer" class="nav-external">AAAI-27 ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> One-day bridge event<span aria-hidden="true">/</span> AAAI 2027</div>
+          <h1 id="hero-title">Climate<em>Signal</em></h1>
+          <p class="hero-subtitle">Bridging Climate Science and AI to Counter Mis- and Disinformation</p>
+          <p class="hero-description">How can AI systems verify and communicate climate claims with scientifically appropriate evidence, provenance, context and uncertainty? A cross-disciplinary Bridge built around learning, hands-on auditing and co-design.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#programme">Explore the programme <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="btn btn-secondary" href="#participate">How to participate <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+          <p class="hero-small">Montréal, Canada · February 16–17, 2027 (one day, exact date TBC) · In person</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit-glow"></div>
+          <svg viewBox="0 0 520 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="259" cy="232" r="197" stroke="#83C9A6" stroke-opacity=".23" stroke-width="1.2" stroke-dasharray="3 7"/>
+            <circle cx="259" cy="232" r="164" stroke="#9AD2B3" stroke-opacity=".25" stroke-width="1.2"/>
+            <circle cx="259" cy="232" r="133" stroke="#9AD2B3" stroke-opacity=".28" stroke-width="1.2" stroke-dasharray="5 6"/>
+            <ellipse cx="259" cy="232" rx="164" ry="60" stroke="#86BFA5" stroke-opacity=".28" transform="rotate(-22 259 232)"/>
+            <ellipse cx="259" cy="232" rx="164" ry="60" stroke="#86BFA5" stroke-opacity=".24" transform="rotate(53 259 232)"/>
+            <path d="M95 232H423M259 68V396" stroke="#75AD98" stroke-opacity=".21" stroke-dasharray="4 8"/>
+            <circle cx="253" cy="162" r="103" fill="#74C8A2" fill-opacity=".12" stroke="#B4E7C8" stroke-opacity=".7" stroke-width="1.4"/>
+            <circle cx="180" cy="274" r="103" fill="#8FC6C5" fill-opacity=".10" stroke="#95D9D2" stroke-opacity=".68" stroke-width="1.4"/>
+            <circle cx="335" cy="276" r="103" fill="#D4E8A0" fill-opacity=".08" stroke="#C4DFAC" stroke-opacity=".62" stroke-width="1.4"/>
+            <circle cx="259" cy="234" r="32" fill="#CFE8BB" fill-opacity=".94"/>
+            <path d="M244 233l10 10 20-23" stroke="#104738" stroke-width="4.7" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#E8FAE9" font-family="Arial,sans-serif" text-anchor="middle" font-size="15" font-weight="700" letter-spacing=".2">
+              <text x="252" y="125"><tspan x="252">Climate</tspan><tspan x="252" dy="19">science</tspan></text>
+              <text x="160" y="299"><tspan x="160">AI &amp;</tspan><tspan x="160" dy="19">NLP</tspan></text>
+              <text x="365" y="302"><tspan x="365">Information</tspan><tspan x="365" dy="19">integrity</tspan></text>
+            </g>
+            <g fill="#BFF0C5"><circle cx="94" cy="232" r="4"/><circle cx="259" cy="68" r="4"/><circle cx="424" cy="232" r="4"/><circle cx="259" cy="396" r="4"/></g>
+            <path d="M85 122l7-7 7 7M419 368l7-7 7 7" stroke="#A1DFB4" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="diagram-caption"><span class="caption-point"></span> Different disciplines. Shared evidence.</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container info-wrap" id="details">
+      <div class="info-strip" aria-label="Event details">
+        <div class="info-item"><span class="info-label">Date</span><span class="info-value">16–17 February 2027</span><span class="info-note">One day within this window · TBC</span></div>
+        <div class="info-item"><span class="info-label">Location</span><span class="info-value">Montréal, Canada</span><span class="info-note">AAAI-27 · room to be assigned</span></div>
+        <div class="info-item"><span class="info-label">Format</span><span class="info-value">One full day</span><span class="info-note">Fully in person · 09:00–17:00</span></div>
+        <div class="info-item"><span class="info-label">Community</span><span class="info-value">~40–60 participants</span><span class="info-note">Researchers, students & practitioners</span></div>
+      </div>
+      <div class="status-note">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#75865c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.8h.01"/></svg>
+        <span><strong>Planning status:</strong> Confirmed</span>
+      </div>
+    </div>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-heading"><div class="section-kicker">About the Bridge</div><h2 id="about-title">A shared language for climate information integrity.</h2><p class="section-lead">Climate evidence is complex. AI can help people understand it — but it can also reproduce misleading narratives, omit important context or make uncertain conclusions sound definitive.</p></div>
+        <div class="about-layout">
+          <div class="about-copy">
+            <p>ClimateSignal brings together the people who produce climate evidence, develop AI systems, fact-check claims and communicate scientific findings. The goal is to turn an urgent challenge into a shared research agenda with common concepts, evaluation methods and lasting collaborations.</p>
+            <p>Unlike a paper-centred workshop, the Bridge combines accessible disciplinary primers, a guided claim-auditing lab and collaborative studios. Participants learn together in the morning and build practical research directions together in the afternoon.</p>
+            <div class="quote-panel"><div class="quote-mark" aria-hidden="true">“</div><p>Learn together. Test together. Specify together. Maintain together.</p></div>
+          </div>
+          <div class="pillar-stack" aria-label="Communities brought together">
+            <article class="pillar"><div class="pillar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-3.5 4-3.5 14 0 18M12 3c3.5 4 3.5 14 0 18"/></svg></div><div><h3>Climate & Earth-system science</h3><p>Observations, projections, attribution, baselines, spatiotemporal scope and uncertainty.</p></div></article>
+            <article class="pillar"><div class="pillar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M19 9h4M19 15h4M1 9h4M1 15h4M9 9h6v6H9z"/></svg></div><div><h3>AI & computer science</h3><p>NLP, multimodal systems, retrieval, foundation models, robust evaluation and AI safety.</p></div></article>
+            <article class="pillar"><div class="pillar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v11H8l-4 4V6Z"/><path d="M8 10h8M8 13h5"/></svg></div><div><h3>Information integrity & society</h3><p>Fact-checking, communication, misinformation research, social science, economics and policy.</p></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="topics" aria-labelledby="topics-title">
+      <div class="container">
+        <div class="section-heading"><div class="section-kicker">Research agenda</div><h2 id="topics-title">Questions we want to tackle.</h2><p class="section-lead">The Bridge centres on challenges that need both climate-science expertise and AI or information-integrity perspectives.</p></div>
+        <div class="topics-grid">
+          <article class="topic-card"><span class="topic-number">01 / REPRESENTATION - Claims, context & uncertainty</span><h3>How do we represent climate claims together with their geographic and temporal scope, provenance, evidence and causal attribution?</h3></article>
+          <article class="topic-card"><span class="topic-number">02 / VALIDATION - Grounding in evolving science </span><h3>How should AI retrieval and fact-checking systems handle changing evidence, scientific sources, projections and generated summaries?</h3></article>
+          <article class="topic-card"><span class="topic-number">03 / ROBUSTNESS - Multimodal mis- and disinformation</span><h3>How can we evaluate misleading plots, synthetic media, selective baselines, outdated findings and adversarial framing?</h3></article>
+          <article class="topic-card"><span class="topic-number">04 / COMMUNICATION - Human-centred explanations</span><h3>How can AI communicate limitations, calibrated uncertainty and useful context without further amplifying misleading claims?</h3></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="programme" aria-labelledby="programme-title">
+      <div class="container">
+        <div class="section-heading"><div class="section-kicker">Programme</div><h2 id="programme-title">TBD</h2></div>
+      </div>
+    </section>
+
+    <section class="section outcome-section" aria-labelledby="outcomes-title">
+      <div class="container">
+        <div class="section-heading"><div class="section-kicker">What we hope to create</div><h2 id="outcomes-title">Outputs designed to outlast the event.</h2><p class="section-lead">These are proposed community-created drafts — not completed standards, datasets or tools.</p></div>
+        <div class="outcomes">
+          <article class="outcome"><div class="outcome-icon" aria-hidden="true">◎</div><h3>A shared claim–evidence schema</h3><p>Common fields for provenance, evidence, spatiotemporal scope, uncertainty and interpretation.</p></article>
+          <article class="outcome"><div class="outcome-icon" aria-hidden="true">▦</div><h3>A living benchmark blueprint</h3><p>Requirements for multilingual, multimodal climate-claim evaluation with time-aware evidence.</p></article>
+          <article class="outcome"><div class="outcome-icon" aria-hidden="true">☷</div><h3>A practical reporting checklist</h3><p>Guidance for evidence traceability, limitations and responsible communication in climate-facing AI.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="participate" aria-labelledby="participate-title">
+      <div class="container">
+        <div class="participate-panel">
+          <div>
+            <div class="section-kicker">Participation</div><h2 id="participate-title">Bring your perspective to the table.</h2>
+            <p>The Bridge Event is designed for climate and AI researchers, fact-checkers, social scientists, communication and policy specialists, practitioners, and students at different career stages. No specialist knowledge of every field is expected.</p>
+            <p>Participants will be invited to share short non-archival position statements, climate-claim cases or demonstrator abstracts. The aim is constructive cross-disciplinary exchange, not a collection of finished papers.</p>
+            <p><strong>Participation instructions and any Bridge-specific deadlines are not yet confirmed.</strong> </p>
+          </div>
+          <aside class="participate-details" aria-label="Who and how to take part">
+            <div class="detail-heading">At a glance</div>
+            <ul>
+              <li>Submission Requirements: We welcome short (up to two-page) non-archival position statements, case descriptions, preliminary research findings or demonstrator abstracts rather than requiring mature research results</li>
+              <li>Selection of participants is intended to balance expertise, motivation and access for early-career researchers.</li>
+              <li>Guided lab supports both programming and non-programming participants.</li>
+              <li>Submitted work will be presented via posters.</li>
+              <li>Submissions will be through OpenReview, more details TBD</li>
+              <li>Attendance and registration follow AAAI rules.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="organizers" aria-labelledby="organizers-title">
+      <div class="container">
+        <div class="section-heading"><div class="section-kicker">Our team</div><h2 id="organizers-title">Organising committee.</h2><p class="section-lead">Bringing together expertise in trustworthy AI, climate NLP, misinformation and societal impacts.</p></div>
+        <div class="committee-grid">
+          <article class="person-card"><div class="avatar" aria-hidden="true">EV</div><div><div class="person-role">Lead organiser</div><h3>Eleonore Vissol-Gaudin</h3><p class="person-affiliation">Fujitsu Research of Europe · UK</p><p class="person-description">AI security and anti-disinformation; coordination, cross-domain teaching and provenance-focused research.</p></div></article>
+          <article class="person-card"><div class="avatar" aria-hidden="true">RM</div><div><div class="person-role">Organiser</div><h3>Rahul Mishra</h3><p class="person-affiliation">Fujitsu Research of India · India</p><p class="person-description">Secure and trustworthy AI, NLP and misinformation; climate-claim clinic and robust evaluation.</p></div></article>
+          <article class="person-card"><div class="avatar" aria-hidden="true">MA</div><div><div class="person-role">Organiser</div><h3>Maged Ali</h3><p class="person-affiliation">Essex Business School, University of Essex · UK</p><p class="person-description">AI, sustainability and social impacts; practitioner engagement and responsible communication.</p></div></article>
+          <article class="person-card"><div class="avatar" aria-hidden="true">ML</div><div><div class="person-role">Organiser</div><h3>Markus Leippold</h3><p class="person-affiliation">University of Zurich · Switzerland</p><p class="person-description">Climate NLP, sustainable finance and climate evidence; case annotation and benchmark design.</p></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer-inner"><p><strong>ClimateSignal</strong> · AAAI-27 Bridge Event · Montréal, February 2027<br />.</p><div class="footer-links"><a href="#top">Back to top ↑</a><a href="https://aaai.org/conference/aaai/aaai-27/bridge-program-call-for-proposals/" target="_blank" rel="noopener noreferrer">AAAI Bridge information ↗</a><a href="https://aaai.org/conference/aaai/aaai-27/aaai-27-registration/" target="_blank" rel="noopener noreferrer">AAAI registration ↗</a></div></div>
+  </footer>
+  <script>
+    (() => {
+      const menuButton = document.querySelector('.menu-button');
+      const menu = document.getElementById('site-nav');
+      const closeMenu = () => {
+        menu.classList.remove('is-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open navigation');
+      };
+      menuButton.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('is-open');
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+        menuButton.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+      });
+      menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+      document.addEventListener('click', event => {
+        if (menu.classList.contains('is-open') && !menu.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
+      });
+      const filterButtons = document.querySelectorAll('.filter-button');
+      const scheduleRows = document.querySelectorAll('.schedule-row');
+      filterButtons.forEach(button => button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        filterButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        scheduleRows.forEach(row => { row.hidden = filter !== 'all' && row.dataset.period !== filter; });
+      }));
+    })();
+  </script>
+</body>
+</html>
